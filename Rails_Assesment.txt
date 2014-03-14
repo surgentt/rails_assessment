@@ -15,16 +15,41 @@ How does rails communicate with the database?  Please be thorough in discussing 
 
 What is a resource?
 
+- A resource is something that you can post to on the web. 
+
 What are the standard RESTful routes for a resource?
+
+*GET /geocoder/new new return an HTML form for creating the geocoder
+*POST  /geocoder create  create the new geocoder
+*GET /geocoder show  display the one and only geocoder resource
+*GET /geocoder/edit  edit  return an HTML form for editing the geocoder
+*PATCH/PUT /geocoder update  update the one and only geocoder resource
+*DELETE  /geocoder destroy delete the geocoder resource
 
 What is CRUD?
 
+Create, Read, Update and Destroy
+
 What is REST?
+
+Representational State Transfer. It is a covention of using HTTP verbs to interact with various browser states. 
 
 What is the difference between CRUD and REST?
 
+CRUD consists of the Rails/Ruby methods to interact with RESTful urls. 
+
 Describe the flow of a request from a users browser through the rails stack and back.
+
+-A request comes from a user and goes to the rails router
+-The moves to the controller
+-THe controller talks to the Model
+-The model talks to the DB
+-THe model goes back to the view with then renders an html page to the browser
 
 What are HTTP verbs?
 
+GET, POST
+
 Why do we use migrations.
+
+- Migrations are a way of handing SQL Create and drop statements. That are timestamped so that multiple migrations don't run at the same time. 

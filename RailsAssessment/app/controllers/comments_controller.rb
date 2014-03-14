@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
 
+  def index
+    @comments = Comment.all
+  end
+
   def create
-    @comment = Comment.new(post_params)
+    #binding.pry
+    #raise params.inspect
+    @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to :back
     else
@@ -9,11 +15,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  # DELETE /posts/1
+  # DELETE /posts/1.json
+  def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to :back
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def post_params
-    params.require(:comment).permit(:comment)
+  def comment_params
+    params.require(:comment).permit(:comment, :post_id)
   end
 
 end

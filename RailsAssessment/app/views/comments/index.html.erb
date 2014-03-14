@@ -1,0 +1,12 @@
+<h3>Here is a list of all comments</h3>
+
+<% @comments.each do |comment| %>
+
+  <p><%= comment.comment %></p>
+  <p><%= comment.id %></p>
+  <p><%= comment.post_id %></p>
+  <p><%= comment.created_at %></p>
+  <p><%= comment.updated_at %></p>
+
+<% end %>
+
